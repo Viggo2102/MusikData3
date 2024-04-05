@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdater</title>
+</head>
+<body>
+<h1>Opdater sang</h1>
+
+<form action="/update" method="post">
+    <label>
+        <input name="id" type="number" hidden th:value="${mus.getId()}">
+    </label>
+
+    <label for="name-field">name</label>
+    <input id="name-field" name="name" type="text" th:value="${mus.artistName}">
+
+    <label for="genre-field">genre</label>
+    <input id="genre-field" name="genre" type="text" th:value="${mus.genre}">
+
+    <label for="album-field">albumName</label>
+    <input id="album-field" name="albumName" type="text" th:value="${mus.albumName}">
+
+    <label for="price-field">albumYear</label>
+    <input id="price-field" name="albumYear" type="text" th:value="${mus.albumYear}">
+
+    <input type="submit" value="Opret musik">
+</form>
+</body>
+</html>

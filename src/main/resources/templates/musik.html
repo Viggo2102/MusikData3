@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MusikBibliotek</title>
+</head>
+<body>
+
+<div>
+    <h1>Dette er mit musikbibliotek</h1>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Navn</th>
+        <th>Genre</th>
+        <th>Album</th>
+        <th>Album year</th> <!-- Removed extra space before "Album year" -->
+        <th>Opdater </th>
+        <th>Slet </th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterating over musiccs and creating a row for each mus -->
+    <tr th:each="mus: ${musiccs}">
+        <td th:text="${mus.artistName}"></td> <!-- Accessing artistName property directly -->
+        <td th:text="${mus.genre}"></td> <!-- Accessing genre property directly -->
+        <td th:text="${mus.albumName}"></td> <!-- Accessing albumName property directly -->
+        <td th:text="${mus.albumYear}"></td> <!-- Accessing albumYear property directly -->
+        <td> Tryk for opdater </td>
+
+
+        <td> <a th:href="@{'/update/' + ${mus.id}}" href="update.html">Opdater</a>
+        </td>
+
+        <td> <a th:href="@{'/delete/' + ${mus.id}}" href="musik.html">Slet</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div>
+    <a href="create" class="my-button">Opret nyt album</a>
+</div>
+
+</body>
+</html>
